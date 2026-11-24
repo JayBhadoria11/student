@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Student Portal{% endblock %} | MITS</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><div class="shell">
+<aside class="sidebar"><div class="brand"><a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='mits-logo.png') }}?v=2" alt="Madhav Institute of Technology and Science (MITS) logo"></a></div>
+<div class="nav-label">STUDENT MENU</div><nav class="nav">
+{% set links=[('/', '⌂','Dashboard'),('/profile','◉','Student Profile'),('/academics','▤','Academics'),('/attendance','◷','Attendance'),('/achievements','✦','Achievements'),('/feedback','✉','Teacher Feedback'),('/marksheet','▧','Printable Marksheet'),('/teacher','✎','Teacher Panel')] %}
+{% for href,ico,label in links %}<a href="{{ href }}" class="{% if request.path == href %}active{% endif %}"><span class="ico">{{ ico }}</span>{{ label }}</a>{% endfor %}
+</nav><div class="side-bottom">MITS Student Portal<br>Academic year 2026–27<br><span>Demo project · Sample data</span></div></aside>
+<main class="main"><header class="topbar"><div class="crumb">Student Portal <span class="muted">/ {% block crumb %}Dashboard{% endblock %}</span></div><div class="user-mini"><span class="muted">{{ student.name if student is defined else "Aarav Sharma" }}</span><span class="avatar">AS</span></div></header>
+<div class="content">{% with messages = get_flashed_messages() %}{% if messages %}{% for message in messages %}<div class="notice">{{ message }}</div>{% endfor %}{% endif %}{% endwith %}{% block content %}{% endblock %}</div>
+<div class="footer">MITS Student Portal · Demonstration website</div></main></div></body></html>

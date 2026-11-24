@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 54">
+<rect x="1" y="1" width="52" height="52" rx="13" fill="#183b66"/>
+<path d="M13 37V17h5l8 11 8-11h5v20h-6V26l-7 9-7-9v11z" fill="#fff"/>
+<text x="62" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#183b66">MITS</text>
+<text x="62" y="39" font-family="Arial,sans-serif" font-size="9" fill="#64748b">STUDENT PORTAL</text>
+</svg>

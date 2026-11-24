@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Achievements{% endblock %}{% block crumb %}Achievements{% endblock %}{% block content %}
+<div class="eyebrow">MILESTONES & RECOGNITION</div><h1 class="page-title">Achievement badges</h1><p class="sub">A collection of activities, recognitions, and milestones.</p>
+<div class="grid badge-grid">{% for a in achievements %}<div class="card achievement"><div class="badge-icon">{{ a.icon }}</div><div><h3>{{ a.title }}</h3><p>{{ a.type }}</p><span class="muted" style="font-size:10px">{{ a.date }}</span></div></div>{% endfor %}</div>
+<div class="card" style="margin-top:18px"><h2 style="font:700 15px 'Manrope';margin:0 0 8px">Keep building your portfolio</h2><p class="muted" style="line-height:1.7;margin:0">Add verified certificates, competition results, workshops, and extracurricular achievements as you earn them.</p></div>{% endblock %}
