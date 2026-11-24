@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block title %}Teacher Panel{% endblock %}{% block crumb %}Teacher Panel{% endblock %}{% block content %}
+<div class="eyebrow">FACULTY WORKSPACE</div><h1 class="page-title">Teacher panel</h1><p class="sub">Edit this student's marks and attendance. Saved changes appear on the student dashboard, academics, attendance and marksheet pages.</p>
+<div class="card" style="margin-bottom:18px"><div class="section-head"><div><div class="stat-label">Selected student</div><h2 style="margin:5px 0 0">{{ student.name }}</h2></div><span class="pill">{{ student.roll }}</span></div><p class="muted" style="margin:0">{{ student.course }} · {{ student.semester }}</p></div>
+<form method="post" class="card">
+  <div class="section-head"><h2>Marks and attendance editor</h2><span class="muted" style="font-size:12px">All values are demo records</span></div>
+  <div class="table-wrap"><table><thead><tr><th>Subject</th><th>Marks / 100</th><th>Classes held</th><th>Present</th></tr></thead><tbody>
+  {% for r in rows %}<tr><td><strong>{{ r.name }}</strong><div class="muted" style="font-size:11px">{{ r.code }}</div></td><td><input class="teacher-input" type="number" name="marks_{{ loop.index0 }}" min="0" max="100" value="{{ r.marks }}" required></td><td><input class="teacher-input" type="number" name="held_{{ loop.index0 }}" min="0" value="{{ r.held }}" required></td><td><input class="teacher-input" type="number" name="present_{{ loop.index0 }}" min="0" max="{{ r.held }}" value="{{ r.present }}" required></td></tr>{% endfor %}
+  </tbody></table></div>
+  <div style="display:flex;justify-content:flex-end;gap:10px;align-items:center;margin-top:20px"><a class="small-link" href="{{ url_for('dashboard') }}">Cancel</a><button class="primary-btn" type="submit">Save changes</button></div>
+</form>
+<div class="notice" style="margin-top:18px">Demo note: this teacher page is not password-protected yet. Changes are shared with student pages while the Flask server is running, but reset when the server restarts. Add teacher login and database storage before real deployment.</div>
+{% endblock %}

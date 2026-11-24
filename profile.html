@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Student Profile{% endblock %}{% block crumb %}Student Profile{% endblock %}{% block content %}
+<div class="eyebrow">PERSONAL INFORMATION</div><h1 class="page-title">Student profile</h1><p class="sub">Your basic academic and contact details.</p>
+<div class="card"><div class="profile-banner" style="margin:-20px -20px 22px;border-radius:13px 13px 0 0"><div class="avatar">{{ student.name[:1] }}</div><div><h2>{{ student.name }}</h2><p>{{ student.course }} · {{ student.batch }}</p></div></div>
+<form method="post"><div class="form-grid">
+<div class="field"><label>Full name</label><input name="name" value="{{ student.name }}" required></div><div class="field"><label>Roll number</label><input value="{{ student.roll }}" disabled></div>
+<div class="field"><label>Email address</label><input type="email" name="email" value="{{ student.email }}"></div><div class="field"><label>Phone number</label><input name="phone" value="{{ student.phone }}"></div>
+<div class="field"><label>Enrollment number</label><input value="{{ student.enrollment }}" disabled></div><div class="field"><label>Faculty advisor</label><input value="{{ student.advisor }}" disabled></div>
+<div class="field"><label>Programme</label><input value="{{ student.course }}" disabled></div><div class="field"><label>Academic year</label><input value="{{ student.year }}" disabled></div>
+</div><div class="actions"><button class="btn" type="submit">Save changes</button><a class="btn secondary" href="{{ url_for('dashboard') }}">Cancel</a></div></form></div>{% endblock %}
